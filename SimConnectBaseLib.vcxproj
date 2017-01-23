@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -14,13 +14,14 @@
     <ProjectGuid>{BA8537E3-C6BB-4160-B399-4AAA238524E9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SimConnectBaseLib</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -40,8 +41,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>G:\SteamLibrary\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>G:\SteamLibrary\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files (x86)\Steam\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\inc;include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Steam\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Program Files (x86)\Steam\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\inc;include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Steam\steamapps\common\FSX\SDK\Core Utilities Kit\SimConnect SDK\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -77,14 +84,14 @@
   <ItemGroup>
     <ClInclude Include="AboutDialog.h" />
     <ClInclude Include="DialogBase.h" />
-    <ClInclude Include="SimConnectApp.h" />
+    <ClInclude Include="include\BaseSimConnectApp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutDialog.cpp" />
+    <ClCompile Include="BaseSimConnectApp.cpp" />
     <ClCompile Include="DialogBase.cpp" />
-    <ClCompile Include="SimConnectApp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
